@@ -7,9 +7,23 @@ pipeline {
         string(name: 'FIRST_PARAM', defaultValue: 'Hello', description: 'First param')
     }
     stages {
-        stage('Greeting') {
+        stage('Prepare venv') {
             steps {
-                sh "echo ${FIRST_PARAM}"
+                sh'''
+                set -ex
+                python -m venv .venv
+                source $WORKSPACE/.venv/Scripts/activate
+                python -m pip install --upgrade pip
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh'''
+                source $WORKSPACE/.venv/Scripts/activate
+                bash make install
+                bash make lint-ci
+                '''
             }
         }
     }
