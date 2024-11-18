@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 's32k3xx'
+    }
     triggers {
         pollSCM('* * * * *')
     }
@@ -18,6 +20,7 @@ pipeline {
             steps {
                 sh'''
                 source $WORKSPACE/.venv/Scripts/activate
+                # sed -i 's/\r$//' run.sh
                 make install
                 make lint-ci
                 '''
