@@ -10,6 +10,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 )"
 function install {
     pip install --upgrade pip
     pip install pre-commit
+    # pre-commit autoupdate
 }
 
 # run linting, formatting, and other static code quality tools
