@@ -3,9 +3,6 @@ pipeline {
     triggers {
         pollSCM('* * * * *')
     }
-    parameters {
-        string(name: 'FIRST_PARAM', defaultValue: 'Hello', description: 'First param')
-    }
     stages {
         stage('Prepare venv') {
             steps {
@@ -21,8 +18,8 @@ pipeline {
             steps {
                 sh'''
                 source $WORKSPACE/.venv/Scripts/activate
-                bash make install
-                bash make lint-ci
+                make install
+                make lint-ci
                 '''
             }
         }
