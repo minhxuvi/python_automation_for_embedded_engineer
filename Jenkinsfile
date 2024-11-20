@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 's32k3xx'
-    }
+    agent any
     triggers {
         pollSCM('* * * * *')
     }
