@@ -12,7 +12,7 @@ extend-exclude = '''
 
 [tool.flake8]
 docstring-convention = "all"
-ignore = ["D107", "D212", "E501", "W503", "W605", "D203", "D100"]
+ignore = ["D203", "D212"]
 exclude = [".venv"]
 max-line-length = 119
 
@@ -26,28 +26,27 @@ force_grid_wrap = 2
 line_length = 119
 
 [tool.pylint."messages control"]
-disable = [
-    "line-too-long",
-    "trailing-whitespace",
-    "missing-function-docstring",
-    "consider-using-f-string",
-    "import-error",
-    "too-few-public-methods",
-    "redefined-outer-name",
-]
+disable = ["too-few-public-methods", "invalid-name"]
+max-line-length = 119
+
 
 [tool.ruff]
 # Enable flake8-bugbear (`B`) rules.
-select = ["E", "F", "B", "ERA"]
+# Select a subset of rules to enable:
+#   E: PEP 8 errors and warnings
+#   F: Fatal errors (e.g. parsing/AST errors)
+#   B: Bugbear rules (e.g. trying to modify an iterable while iterating)
+#   ERA: `ruff` rules (e.g. `ERA001`, `ERA002`, etc.)
+lint.select = ["E", "F", "B", "ERA"]
 
 # Never enforce `E501` (line length violations).
-ignore = ["E501", "F401"]
+lint.ignore = ["E501", "F401"]
 
 # Avoid trying to fix flake8-bugbear (`B`) violations.
-unfixable = ["B"]
+lint.unfixable = ["B"]
 line-length = 119
 
 # Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["E402"]
 "path/to/file.py" = ["E402"]
