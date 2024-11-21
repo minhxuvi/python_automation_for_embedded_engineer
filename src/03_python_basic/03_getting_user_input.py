@@ -1,7 +1,7 @@
 """03 getting user input."""
 
-name = input("Enter? your name: ")
-print(f"Hello {input}")
+name = input("Enter your name: ")
+print(f"Hello {name}")
 
 # multiple inputs
 first_name, last_name = input("Enter your name: ").split()

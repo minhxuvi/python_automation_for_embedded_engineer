@@ -15,6 +15,7 @@ print(T[1])
 S = {1, 2, 3}
 print(S)
 
+
 # subscript notation available on list, tupple
 print(L[0])
 L[0] = "Huy"  # type: ignore[call-overload]
@@ -35,3 +36,7 @@ print(T_2)
 # list to set
 S_2 = set(L)
 print(S_2)
+
+# set to list
+L_2 = list(S)
+print(L_2)

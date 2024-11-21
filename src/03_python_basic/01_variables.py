@@ -1,6 +1,6 @@
-"""01_variables."""
+"""01 variables."""
 
-# interger
+# integer
 A = 10
 print(A)
 
@@ -28,19 +28,25 @@ print(E)
 
 # list
 f = [1, 2, 3]
+class_members = ["minh", "huy"]
+print(f)
+print(f[0])
+f[0] = 10
 print(f)
 
-# tuple
+# tuple, prioritize to use (immutable)
 g = (1, 2, 3)
 print(g)
-
-# dictionary
-h = {"a": 1, "b": 2, "c": 3}
-print(h)
+print(g[0])
 
 # set
-i = {1, 2, 3}
+i = {3, 2, 1}
 print(i)
+
+# dictionary
+h = {1: "hello", "b": 2, "c": 3}
+print(h)
+
 
 # None
 j = None

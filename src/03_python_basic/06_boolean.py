@@ -13,7 +13,7 @@ print(A <= B)
 # logical
 print(A == 10 and B == 10)
 print(A == 10 or B == 10)
-print(A != 10)
+print(A is not B)
 
 # membership
 L = [1, 2, 3]
@@ -41,5 +41,5 @@ class Y(X):
     """Y."""
 
 
-print(issubclass(Y, X))
-print(issubclass(X, Y))
+print(issubclass(Y, X))  # True because Y is a subclass of X
+print(issubclass(X, Y))  # False because X is not a subclass of Y
