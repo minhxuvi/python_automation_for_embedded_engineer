@@ -13,7 +13,7 @@ class Student:
         return sum(self.grades) / len(self.grades)
 
 
-student_1 = Student("John", [70, 80, 90])
+student_1 = Student(name="John", grades=[70, 80, 90])
 print(student_1.name)
 print(student_1.average())
 

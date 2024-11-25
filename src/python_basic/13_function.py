@@ -34,7 +34,7 @@ def func_3(a: int, b: int) -> int:
     return a + b
 
 
-print(func_3(1, 2))
+print(func_3(0, 1))
 
 
 # function with variable arguments

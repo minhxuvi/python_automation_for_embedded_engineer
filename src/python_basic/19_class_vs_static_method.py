@@ -4,6 +4,8 @@
 class Person:
     """This is a class that demonstrates usage of class and static methods."""
 
+    CLS_COUNTER = 0
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -13,32 +15,44 @@ class Person:
         return f"Person({', '.join(attributes)})"
 
     @classmethod
-    def func_1(cls, *args, **kwargs):
+    def change_cls_counter(cls):
         """This is a class method that demonstrates usage of class methods.
         Class methods have access to the class and can modify class state."""
-        cls.args = args
-        for key, value in kwargs.items():
-            setattr(cls, key, value)
-        attributes = [f"{key}={value}" for key, value in cls.__dict__.items()]
-        print(f"Person({', '.join(attributes)})")
+        print("class method")
+        cls.CLS_COUNTER += 1
 
     @staticmethod
-    def func_2():
+    def static_method():
         """This is a static method that demonstrates usage of static methods.
         Static methods are just like regular functions but they are associated
         with a class. They do not have access to the class or instance."""
         print("static method")
 
-    def func_3(self):
+    def instance_method(self):
         """This is an instance method that demonstrates usage of an instance.
         Instance methods have access to the instance and the class."""
 
         print("instance method")
+        if self.CLS_COUNTER > 0:
+            print(f"class attribute is greater than 0 {self.CLS_COUNTER}")
+        else:
+            self.CLS_COUNTER += 1
+            print(f"class attribute is less than 0 {self.CLS_COUNTER}")
 
 
-Person.func_1()
-Person.func_2()
-Person(name="John", age=30).func_3()
+if __name__ == "__main__":
+    Person.static_method()
+
+    person1 = Person(name="John", age=30)
+    person2 = Person(name="John", age=30)
+    person1.instance_method()
+    print(person1.CLS_COUNTER)
+    print(person2.CLS_COUNTER)
+
+    # Person.change_cls_counter()
+    person2.instance_method()
+    person1.instance_method()
+
 
 # Function vs method
 

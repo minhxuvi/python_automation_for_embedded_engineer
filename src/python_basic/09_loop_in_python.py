@@ -1,7 +1,7 @@
 """Loop in python."""
 
 # for loop
-for i in range(10):
+for i in range(0, 9, 2):
     print(i)
 
 # while loop
@@ -31,5 +31,6 @@ for i, j in enumerate(range(10)):
     print(i, j)
 
 # zip
+print("Zip example")
 for i, j in zip(range(10), range(10)):
     print(i, j)

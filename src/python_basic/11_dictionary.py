@@ -7,6 +7,12 @@ print(D["a"])
 print(D.keys())
 print(D.values())
 print(D.items())
+for key, value in D.items():
+    print(key, value)
+for key in D.keys():
+    print(key)
+for value in D.values():
+    print(value)
 
 # update dictionary
 D["d"] = 4
@@ -23,6 +29,7 @@ print(D)
 # copy dictionary
 D = {"a": 1, "b": 2, "c": 3}
 E = D.copy()
+D["a"] = 10
 print(E)
 
 # nested dictionary
@@ -37,4 +44,6 @@ print(G)
 # dictionary unpacking
 H = {"a": 1, "b": 2, "c": 3}
 a, b, c = H
+x, y, z = H.items()
+print(x, y, z)
 print(a, b, c)

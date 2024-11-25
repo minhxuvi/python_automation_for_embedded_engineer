@@ -16,6 +16,7 @@ print(dummy)
 # list unpacking
 cities = ["New York", "London", "Paris", "Tokyo"]
 *_, last = cities
+print(cities[0:2])
 print(last)
 head, *_, last = cities
 print(head)
