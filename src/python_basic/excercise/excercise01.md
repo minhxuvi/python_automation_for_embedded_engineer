@@ -1,5 +1,6 @@
 Viết một class TestBuilder()
-Có các properties: os, compiler, core, test_suite, platform
+Có các properties: os, compiler, core
+biến môi trường: PLUGINS_DIR, BUILD_DIR
 method build() return đường dẫn tới binary output.
 
 B1: clone ipcf, ipcf-tests
