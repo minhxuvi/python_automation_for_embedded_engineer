@@ -1,4 +1,4 @@
-# receive input from commandline and print it out include: os, compiler, core
+
 GCC = $(if $(GCC_DIR),$(GCC_DIR)/gcc,gcc)
 
 all: main print
