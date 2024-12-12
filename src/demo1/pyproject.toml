@@ -1,0 +1,16 @@
+[build-system]
+# Minimum requirements for the build system to execute.
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "test_builder"
+authors = [{ name = "Dummy", email = "dummy@abc.com" }]
+description = "My package description"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = ["pydantic"]
+version = "0.0.1"
+scripts = { "test_builder" = "test_builder.test_builder:main" }

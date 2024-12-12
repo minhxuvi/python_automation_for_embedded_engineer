@@ -71,7 +71,7 @@ def main():
         test_input=TestInput(
             build_dir="/Users/moc/Projects/python_automation_for_embedded_engineer/src/demo1",
             target=args.target,
-            os_=12,
+            os_=args.os,
             compiler=args.compiler,
             core=args.core,
             env=custom_env,
