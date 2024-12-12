@@ -1,32 +1,53 @@
+"""Build project."""
+
 import argparse
 import os
 import subprocess
 from pathlib import Path
 from typing import Optional
 
+from pydantic import BaseModel
 
-class TestInput: ...
-
-
-def build_new(test_input: TestInput):
-    pass
+# 1 Create test input class
+# 2 Verify test input class
 
 
-def build(build_dir: Path, target: str, os_: str, compiler: str, core: str, env: Optional[dict] = None):
+class TestInput(BaseModel):
+    """Test input."""
+
+    build_dir: Path
+    target: str
+    os_: str
+    compiler: str
+    core: str
+    env: Optional[dict] = None
+
+
+def build(test_input: TestInput):
     """Build project."""
     current_environment = os.environ.copy()
-    if env is not None:
-        current_environment.update(env)
-    print(" ".join(["make", f"os={os_}", f"compiler={compiler}", f"core={core}", target]))
+    if test_input.env is not None:
+        current_environment.update(test_input.env)
+    print(
+        " ".join(
+            [
+                "make",
+                f"os={test_input.os_}",
+                f"compiler={test_input.compiler}",
+                f"core={test_input.core}",
+                test_input.target,
+            ]
+        )
+    )
     subprocess.run(
         [
             "make",
-            f"os={os_}",
-            f"compiler={compiler}",
-            f"core={core}",
-            target,
+            f"os={test_input.os_}",
+            f"compiler={test_input.compiler}",
+            f"core={test_input.core}",
+            test_input.target,
         ],
-        cwd=build_dir,
+        cwd=test_input.build_dir,
         env=current_environment,
         # shell=True, # TODO: analyze while this not run with shell=True
         check=True,
@@ -47,12 +68,14 @@ def main():
         "GCC_DIR": "/usr/bin",
     }
     build(
-        build_dir="/Users/moc/Projects/python_automation_for_embedded_engineer/src/demo1",
-        target=args.target,
-        os_=args.os,
-        compiler=args.compiler,
-        core=args.core,
-        env=custom_env,
+        test_input=TestInput(
+            build_dir="/Users/moc/Projects/python_automation_for_embedded_engineer/src/demo1",
+            target=args.target,
+            os_=12,
+            compiler=args.compiler,
+            core=args.core,
+            env=custom_env,
+        )
     )
 
 
