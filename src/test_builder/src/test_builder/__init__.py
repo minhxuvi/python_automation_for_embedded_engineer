@@ -15,7 +15,8 @@ from pydantic import BaseModel
 class TestInput(BaseModel):
     """Test input."""
 
-    build_dir: Path
+    # build_dir: Path
+    build_dir: str
     target: str
     os_: str
     compiler: str
@@ -67,6 +68,7 @@ def main():
         "BUILD_DIR": "/Users/moc/Projects/python_automation_for_embedded_engineer/src/demo1/build",
         "GCC_DIR": "/usr/bin",
     }
+    # TODO: store input to database, return build path with object_id in it. Example: /path/to/bin/<object_id>/binaries
     build(
         test_input=TestInput(
             build_dir="/Users/moc/Projects/python_automation_for_embedded_engineer/src/demo1",

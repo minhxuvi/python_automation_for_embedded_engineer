@@ -13,4 +13,4 @@ license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["pydantic"]
 version = "0.0.1"
-scripts = { "test_builder" = "test_builder.test_builder:main" }
+scripts = { "test_builder" = "test_builder:main" }
