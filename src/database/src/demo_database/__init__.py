@@ -5,8 +5,6 @@ from pymongo import MongoClient
 
 from test_builder import TestInput
 
-MONGODB_URL = "mongodb+srv://minhxuvi:zmzM5MIzZR0toc8m@minhxuvi.sklfgak.mongodb.net/?retryWrites=true&w=majority&appName=minhxuvi"
-
 DB = MongoClient(MONGODB_URL)
 
 # print(DB.list_database_names())
